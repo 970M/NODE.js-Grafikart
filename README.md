@@ -59,3 +59,28 @@ Fichiers isolés.
 -   Reconstruire le repertoire node_modules et récupérer les modules du projets à partir des infos dans package.json :
 
     `npm install`
+
+## ExpressJS
+
+#### Projet Livre d'Or
+
+Livre d'or utilisant ExpressJS permettant aux utilisateur de poster des message et de les afficher.
+Utilise une base de donnée mySQL
+
+**Initialisation du projet:**
+
+    mkdir LivreOr
+    cd LivreOr
+    touch server.js
+    npm init
+    npm i -S express
+
+**Module permettant de redémarrer automatiquement le server (~ live server)**
+
+    npm i -G nodemon // Instalation global
+
+Configurer package.json: "start": "nodemon server.js"
+
+**Lancer le server:**
+
+    npm run start

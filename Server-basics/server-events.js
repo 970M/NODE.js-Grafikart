@@ -26,7 +26,7 @@ let App = {
     },
 };
 
-let app = App.start(1337);
+let app = App.start(1337, "127.0.0.1");
 app.on("root", (response) => {
     response.write("Je suis à la racine");
 });
