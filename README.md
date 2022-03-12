@@ -6,7 +6,7 @@
 
 ## Notre premier serveur
 
-./Serveur-basic
+./Serveur-basics
 
 **Gestion bas niveau sans librairies dédiées**
 
@@ -22,3 +22,9 @@
 -   Gestion des URLs
 
 -   Créer son propre systeme d'événements
+
+## Les Streams
+
+-   Méthode synchrone (bloquante) readFile()/writeFile() pour lire/écrire des petit fichiers.
+
+-   Méthode asynchrone avec des streams pour les gros fichiers (redirection du flux de lecture vers plusieur flux d'écriture)

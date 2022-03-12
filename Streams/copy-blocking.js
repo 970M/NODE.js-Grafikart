@@ -12,4 +12,3 @@ fs.readFile("video.mp4", (err, data) => {
 });
 
 // https://devdocs.io/node/fs#fs.writeFile()
-// https://devdocs.io/node/fs#fs.createReadStream()
