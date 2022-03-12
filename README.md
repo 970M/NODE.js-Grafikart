@@ -84,3 +84,16 @@ Configurer package.json: "start": "nodemon server.js"
 **Lancer le server:**
 
     npm run start
+
+**Moteur de vue EJS**
+
+    npm i -S ejs
+
+**Charger un CSS en utilisant Semantic-UI**
+
+    https://semantic-ui.com/
+    get started -> download zip // Semantic-UI-CSS-master.zip
+    cd LivreOr
+    mkdir public
+    cd public
+    mkdir semantic // Remplir le dossier avec le contenu du zip
