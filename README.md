@@ -28,3 +28,7 @@
 -   Méthode synchrone (bloquante) readFile()/writeFile() pour lire/écrire des petit fichiers.
 
 -   Méthode asynchrone avec des streams pour les gros fichiers (redirection du flux de lecture vers plusieur flux d'écriture)
+
+## Les Modules
+
+Comment séparer le code en plusieurs fichiers afin de pouvoir mieux s'organiser ?
