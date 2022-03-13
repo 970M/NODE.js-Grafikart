@@ -1,20 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("header") -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livre d'Or (NodeJS)</title>
-    <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
-</head>
 
-<body>
-    <h1>Hello world</h1>
+    <form action="/" method="post" class="ui form">
 
-    <p>
-        <%= key1 %>
-    </p>
-</body>
+        <div class="field">
 
-</html>
+            <label for="message">Message</label>
+
+            <textarea name="message" id="message"></textarea>
+
+        </div>
+
+        <button type="submit" class="ui blue labeled submit icon button">
+
+            <i class="icon edit"></i>
+            <%= key1 %>
+
+        </button>
+
+
+    </form>
+
+
+    <%- include("footer") -%>

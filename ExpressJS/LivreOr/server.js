@@ -16,7 +16,7 @@ app.get("/", (request, response) => {
     //res.send("GET: Hello World!");
 
     // Rendre une vue
-    response.render("pages/index", { key1: "970M" });
+    response.render("pages/index", { key1: "POST" });
 });
 
 app.listen(port, hostname, () => {
