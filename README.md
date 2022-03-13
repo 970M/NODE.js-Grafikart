@@ -62,6 +62,10 @@ Fichiers isolés.
 
 ## ExpressJS
 
+> http://expressjs.com/
+
+> https://www.digitalocean.com/community/tutorials?q=express
+
 #### Projet Livre d'Or
 
 Livre d'or utilisant ExpressJS permettant aux utilisateur de poster des message et de les afficher.
@@ -89,6 +93,10 @@ Configurer package.json: "start": "nodemon server.js"
 
     npm i -S ejs
 
+> https://ejs.co/#promo
+
+> https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application-fr#transmettre-les-donnees-aux-vues-et-aux-partiels
+
 **Charger un CSS en utilisant Semantic-UI**
 
     https://semantic-ui.com/
@@ -104,6 +112,6 @@ TS=11:50
 
 > http://expressjs.com/fr/api.html#req.body
 
-Nouvelle méthode d'express à la place
+=> Nouvelle méthode d'express à la place
 
 TS=21:00
