@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+
+const session = require("express-session"); // Mettre en place et gérer les sessions coté serveur
+
+// Configuration URL
 const port = 1337;
 const hostname = "127.0.0.1";
 
@@ -23,6 +27,15 @@ app.use("/assets", express.static("public")); // http://127.0.0.1:1337/assets/se
 // Pour utiliser le body-parsing pour traiter request.body
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// Configurer la session
+app.use(
+    session({
+        secret: "CHANGE ME",
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false }, // Pas de https
+    })
+);
 
 //----------------------------------------
 // Routes
@@ -31,18 +44,31 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.get("/", (request, response) => {
     //res.send("GET: Hello World!");
 
+    // Afficher le cas échéant l'erreur stockée dans la session
+    // Systeme de message flash
+
+    if (request.session.error) {
+        response.locals.error = request.session.error;
+        request.session.error = undefined;
+    }
+
     // Rendre une vue
     response.render("pages/index", { key1: "POST" });
 });
 
 app.post("/", (request, response) => {
-    console.log(request.body); // http://expressjs.com/fr/api.html#req.body
+    console.log("body:", request.body); // http://expressjs.com/fr/api.html#req.body
     if (request.body.message === undefined || request.body.message === "") {
-        // Rendre une vue
-        response.render("pages/index", {
-            key1: "POST",
-            error: "Vous n'avez pas entré de message :(",
-        });
+        // // Rendre une vue et passer des valeurs
+        // response.render("pages/index", {
+        //     key1: "POST",
+        //     error: "Vous n'avez pas entré de message :(",
+        // });
+
+        // Sauvegarder un message d'erreur dans une session et rediriger vers la page d'acceuil
+
+        request.session.error = "Il y une erreur"; // stockage d'une clé error
+        response.redirect("/");
     }
 
     // Rendre un format json
