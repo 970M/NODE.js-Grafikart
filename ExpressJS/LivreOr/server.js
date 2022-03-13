@@ -15,7 +15,7 @@ const hostname = "127.0.0.1";
 app.set("view engine", "ejs");
 
 //----------------------------------------
-// Middleware
+// Middlewares (executé dans l'ordre de déclaration)
 //----------------------------------------
 
 // Delivrer les fichiers statiques (ex: semantic.min.css)
@@ -36,6 +36,8 @@ app.use(
         cookie: { secure: false }, // Pas de https
     })
 );
+// Créer un middleware
+app.use(require("./middlewares/flash"));
 
 //----------------------------------------
 // Routes
@@ -47,10 +49,13 @@ app.get("/", (request, response) => {
     // Afficher le cas échéant l'erreur stockée dans la session
     // Systeme de message flash
 
-    if (request.session.error) {
-        response.locals.error = request.session.error;
-        request.session.error = undefined;
-    }
+    // // Méthode remplacée par le middleware fash()
+    // if (request.session.error) {
+    //     response.locals.error = request.session.error;
+    //     request.session.error = undefined;
+    // }
+
+    console.log(request);
 
     // Rendre une vue
     response.render("pages/index", { key1: "POST" });
@@ -67,7 +72,10 @@ app.post("/", (request, response) => {
 
         // Sauvegarder un message d'erreur dans une session et rediriger vers la page d'acceuil
 
-        request.session.error = "Il y une erreur"; // stockage d'une clé error
+        // // Méthode remplacée par le middleware fash()
+        // request.session.error = "Il y une erreur"; // stockage d'une clé error
+
+        request.flash("error", "Vous navez pas posté de message");
         response.redirect("/");
     }
 

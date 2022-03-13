@@ -124,6 +124,10 @@ ExpressJS ne gere pas ça, il faut installer un autre module
 
 Création d'un objet session permettant de stocker des informations au niveau de la requete
 
+**Gestion de la session par express-session mis dans un middleware flash.js**
+
+Créer dans request une methode flas(): request.flash()
+
 ---
 
 ## Commits comments
