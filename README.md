@@ -99,3 +99,11 @@ Configurer package.json: "start": "nodemon server.js"
     mkdir semantic // Remplir le dossier avec le contenu du zip
 
 TS=11:50
+
+**Bodyparsing: body-parser semble déprécié**
+
+> http://expressjs.com/fr/api.html#req.body
+
+Nouvelle méthode d'express à la place
+
+TS=21:00
