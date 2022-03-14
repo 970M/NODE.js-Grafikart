@@ -35,3 +35,13 @@
             </div>
 
             <% } %>
+
+
+                <div class="ui main container">
+                    <% if (locals.flash && locals.flash.success) { %>
+                        <div class="ui negative message">
+                            <%= flash.success %>
+
+                        </div>
+
+                        <% } %>

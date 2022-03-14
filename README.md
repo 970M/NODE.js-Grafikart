@@ -126,9 +126,47 @@ Création d'un objet session permettant de stocker des informations au niveau de
 
 **Gestion de la session par express-session mis dans un middleware flash.js**
 
-Créer dans request une methode flas(): request.flash()
+Créer dans request une methode flash: request.flash()
 
----
+**Sauvegarder des informations dans une base de donnée**
+
+    sudo /etc/init.d/mysql start // Demarrer mysql
+
+Probleme de comptabilité avec mySQL : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+
+Fix method use :
+
+> https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+
+Création d'une base livreor et d'une table message
+
+    CREATE TABLE livreor.message (
+
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        content VARCHAR(255),
+        created_at DATETIME
+
+    )
+
+Installation du module mysql
+
+    npm i -S mysql
+
+> https://www.npmjs.com/package/mysql
+
+**Formatage de la date (format DATETIME)**
+
+Installation de moment
+
+    npm i -S moment
+
+> https://momentjs.com/docs/
+
+**Utilisation d'instances de la classe Message**
+
+**Ajout d'un constructeur et de getter setter**
+
+TS=43:12
 
 ## Commits comments
 

@@ -54,15 +54,17 @@ app.get("/", (request, response) => {
     //     response.locals.error = request.session.error;
     //     request.session.error = undefined;
     // }
+    let Message = require("./models/message");
+    Message.all(function (messages) {
+        console.log("messages:", messages);
 
-    console.log(request);
-
-    // Rendre une vue
-    response.render("pages/index", { key1: "POST" });
+        // Rendre une vue
+        response.render("pages/index", { key1: "POST", messages: messages });
+    });
 });
 
 app.post("/", (request, response) => {
-    console.log("body:", request.body); // http://expressjs.com/fr/api.html#req.body
+    //console.log("body:", request.body.message); // http://expressjs.co  m/fr/api.html#req.body
     if (request.body.message === undefined || request.body.message === "") {
         // // Rendre une vue et passer des valeurs
         // response.render("pages/index", {
@@ -77,6 +79,14 @@ app.post("/", (request, response) => {
 
         request.flash("error", "Vous navez pas posté de message");
         response.redirect("/");
+    } else {
+        // Creation d'un class Message pour centraliser les traitements et alléger le bloc courant
+        let Message = require("./models/message");
+        Message.create(request.body.message, function (res) {
+            //console.log("new records:", res);
+            request.flash("success", "Merci pour votre message");
+            response.redirect("/");
+        });
     }
 
     // Rendre un format json
