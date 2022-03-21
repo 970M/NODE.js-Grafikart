@@ -14,8 +14,6 @@
 
     <div class="ui comments">
 
-
-
         <h3 class="ui dividing header">Commentaires</h3>
 
         <% for (message of messages) { %>
@@ -28,15 +26,12 @@
                     </div>
 
                     <div class="time">
-                        <%= message.created_at %>
+                        <%= message.created_at.fromNow() %>
                     </div>
-
                 </div>
-
             </div>
 
             <% } %>
-
     </div>
 
     <%- include("footer") -%>

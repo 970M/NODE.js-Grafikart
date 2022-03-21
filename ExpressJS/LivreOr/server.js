@@ -83,7 +83,7 @@ app.post("/", (request, response) => {
         // Creation d'un class Message pour centraliser les traitements et alléger le bloc courant
         let Message = require("./models/message");
         Message.create(request.body.message, function (res) {
-            //console.log("new records:", res);
+            console.log("new records:", res);
             request.flash("success", "Merci pour votre message");
             response.redirect("/");
         });

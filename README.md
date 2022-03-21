@@ -62,6 +62,8 @@ Fichiers isolés.
 
 ## ExpressJS
 
+./ExpressJS/LivreOr
+
 > http://expressjs.com/
 
 > https://www.digitalocean.com/community/tutorials?q=express
@@ -167,6 +169,20 @@ Installation de moment
 **Ajout d'un constructeur et de getter setter**
 
 TS=43:12
+
+**Création d'instance de la classe Message**
+
+**Formatage de la date au format Francais avec moment**
+
+Création d'un fichier de configuration de moment dans .config
+
+> https://momentjs.com/docs/#/i18n/
+
+**Ajout d'un getter dans message pour nouvelle fonctionnalité**
+
+Lorsque l'on clique sur le message, on veut qu'il s'affiche
+
+TS=48:00
 
 ## Commits comments
 
