@@ -16,6 +16,10 @@ class Message {
         return moment(this.row.created_at);
     }
 
+    get id() {
+        return this.row.id;
+    }
+
     // Setter tbd...
 
     static create(content, callback) {
@@ -39,6 +43,19 @@ class Message {
             //callback(rows);
             callback(rows.map((row) => new Message(row)));
         });
+    }
+
+    static find(id, callback) {
+        console.log("id=", id);
+        connection.query(
+            "SELECT * FROM message WHERE id = ?",
+            [id],
+            (err, rows) => {
+                if (err) throw err;
+                console.log("row=", rows[0]);
+                callback(new Message(rows[0]));
+            }
+        );
     }
 }
 

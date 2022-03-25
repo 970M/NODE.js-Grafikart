@@ -44,6 +44,8 @@ app.use(require("./middlewares/flash"));
 //----------------------------------------
 
 app.get("/", (request, response) => {
+    //console.log(process.env.NODE_ENV);
+
     //res.send("GET: Hello World!");
 
     // Afficher le cas échéant l'erreur stockée dans la session
@@ -54,6 +56,7 @@ app.get("/", (request, response) => {
     //     response.locals.error = request.session.error;
     //     request.session.error = undefined;
     // }
+
     let Message = require("./models/message");
     Message.all(function (messages) {
         console.log("messages:", messages);
@@ -91,6 +94,16 @@ app.post("/", (request, response) => {
 
     // Rendre un format json
     // response.json(request.body);
+});
+
+app.get("/message/:id", (request, response) => {
+    // Renvoyer dans l'url le parametre id du message
+    // response.send(request.params.id);
+
+    let Message = require("./models/message");
+    Message.find(request.params.id, function (message) {
+        response.render("messages/show", { message: message });
+    });
 });
 
 app.listen(port, hostname, () => {

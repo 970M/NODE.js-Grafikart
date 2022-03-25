@@ -19,8 +19,8 @@
         <% for (message of messages) { %>
 
             <div class="comment">
+                <a class="avatar" href="/message/<%= message.id %>">CLICK</a>
                 <div class="content">
-
                     <div class="text">
                         <%= message.content %>
                     </div>
